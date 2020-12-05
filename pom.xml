@@ -5,10 +5,9 @@
 
     <groupId>com.neodigitallogic</groupId>
     <artifactId>billapp</artifactId>
-    <version>4.0.8</version>
+    <version>5.0.2</version>
 
     <packaging>jar</packaging>
-
 
     <name>billAPP</name>
     <description>Bill APP</description>
