@@ -106,11 +106,12 @@ public class  FacturaDataDTO {
     private List<TarifaIva> tarifaIvas;
 
     private List<Impuesto> impuestos;
+    private List<ServicioCabys> servicios;
 
     private List<Tarifa> tarifas;
     private List<Medida> medidas;
 
-    private Iterable<ServicioCorreduriaAduanera> servicios;
+//    private Iterable<ServicioCorreduriaAduanera> servicios;
 
     /****************************************************************************************************************/
 
@@ -471,14 +472,22 @@ public class  FacturaDataDTO {
         this.clienteId = id;
     }
 
-    public Iterable<ServicioCorreduriaAduanera> getServicios() {
+//    public Iterable<ServicioCorreduriaAduanera> getServicios() {
+//        return servicios;
+//    }
+//
+//    public void setServicios(Iterable<ServicioCorreduriaAduanera> servicios) {
+//        this.servicios = servicios;
+//    }
+
+
+    public List<ServicioCabys> getServicios() {
         return servicios;
     }
 
-    public void setServicios(Iterable<ServicioCorreduriaAduanera> servicios) {
+    public void setServicios(List<ServicioCabys> servicios) {
         this.servicios = servicios;
     }
-
 
     public List<Impuesto> getImpuestos() {
         return impuestos;

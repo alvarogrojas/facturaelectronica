@@ -168,6 +168,13 @@ public class FacturaElectronicaV43Mapper implements Mapper {
     private Double createLineaDetalle(Integer linea, FacturaElectronica.DetalleServicio.LineaDetalle ld, FacturaDetalleDTO fd,
                                       Cliente c, XMLGregorianCalendar date) {
         ld.setNumeroLinea(BigInteger.valueOf(linea));
+
+        if (fd.getServicio()!=null) {
+            ld.setCodigo(fd.getServicio().getCodigoCabys());
+        } else {
+            // TODO: manejar error de facturacion, envio va a devolver un error
+        }
+
         ld.setCantidad(BigDecimal.valueOf(fd.getCantidad()));
         ld.setUnidadMedida(fd.getMedida().getSimbolo());
 

@@ -200,44 +200,19 @@ public class NotaCreditoV43Mapper implements Mapper {
 
     private Double createLineaDetalle(Integer linea, NotaCreditoElectronica.DetalleServicio.LineaDetalle ld,
                                       NotaCreditoDetalleDTO fd, Cliente c, XMLGregorianCalendar date) {
-//        ld.setNumeroLinea(BigInteger.valueOf(linea));
-//        ld.setCantidad(BigDecimal.valueOf(fd.getCantidad()));
-//        ld.setUnidadMedida(this.emisorService.getUnidadMedida());
-//        ld.setDetalle(fd.getDetalle());
-//        Double montoImpuesto = 0d;
-//        BigDecimal i = null;
-//        Double montoUnitarioAntesImpuestos = fd.getMontoNeto() / fd.getCantidad();
-//        if (BillHelper.aplicaImpuestoVentas(fd.getImpuestos())) {
-//            this.totalServiciosGrabados = this.totalServiciosGrabados + fd.getMontoNeto();
-//            montoImpuesto = fd.getImpuestosMonto();
-//            i = createDinero(montoImpuesto);
-//            //montoUnitarioAntesImpuestos = montoUnitarioAntesImpuestos / fd.getCantidad(); //Incluye impuesto
-//            ImpuestoType it = new ImpuestoType();
-//            it.setCodigo("01");
-//            it.setTarifa(createDinero(fd.getImpuestos()));
-//            it.setMonto(i);
-////            it.setMonto(createDinero(montoImpuesto));
-//            ld.getImpuesto().add(it);
-//
-//        } else {
-//            this.totalServiciosExcento = fd.getMontoColones() + this.totalServiciosExcento;
-//        }
-//
-//        ld.setPrecioUnitario(createDinero(createPrecioUnitario(fd,fd.getMontoNeto())));
-//        ld.setMontoTotal(createDinero(fd.getMontoNeto()));
-//        ld.setSubTotal(createDinero(fd.getMontoNeto()));
-//        Double totalColones = (ld.getPrecioUnitario().doubleValue() * fd.getCantidad()) + montoImpuesto;
-//        ld.setMontoTotalLinea(createDinero((totalColones)));
-//        if (i==null) {
-//            return 0d;
-//        }
-//        return i.doubleValue();
+
         ld.setNumeroLinea(BigInteger.valueOf(linea));
         ld.setCantidad(BigDecimal.valueOf(fd.getCantidad()));
         if (fd.getMedida()!=null && fd.getMedida().getSimbolo()!=null) {
             ld.setUnidadMedida(fd.getMedida().getSimbolo());
         } else {
             ld.setUnidadMedida("Sp");
+        }
+
+        if (fd.getServicio()!=null) {
+            ld.setCodigo(fd.getServicio().getCodigoCabys());
+        } else {
+            // TODO: manejar error de facturacion, envio va a devolver un error
         }
 
         ld.setDetalle(fd.getDetalle());

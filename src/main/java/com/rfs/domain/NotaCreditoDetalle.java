@@ -37,6 +37,10 @@ public class NotaCreditoDetalle implements Comparable<NotaCreditoDetalle> {
     @JoinColumn(name="medida_id", referencedColumnName="id")
     private Medida medida;
 
+    @OneToOne
+    @JoinColumn(name="servicio_id", referencedColumnName="id")
+    private ServicioCabys servicio;
+
 
     public NotaCredito getNotaCredito() {
         return notaCredito;
@@ -150,5 +154,13 @@ public class NotaCreditoDetalle implements Comparable<NotaCreditoDetalle> {
 
     public void setMedida(Medida medida) {
         this.medida = medida;
+    }
+
+    public ServicioCabys getServicio() {
+        return servicio;
+    }
+
+    public void setServicio(ServicioCabys servicio) {
+        this.servicio = servicio;
     }
 }

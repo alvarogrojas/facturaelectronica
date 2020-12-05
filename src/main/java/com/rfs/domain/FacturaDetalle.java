@@ -58,6 +58,9 @@ public class FacturaDetalle implements Comparable<FacturaDetalle> {
     private Double impuestosMonto;
     private String tipoImpuesto;
 
+    @OneToOne
+    @JoinColumn(name="servicio_id", referencedColumnName="id")
+    private ServicioCabys servicio;
 
 
     public Integer getId() {
@@ -184,5 +187,13 @@ public class FacturaDetalle implements Comparable<FacturaDetalle> {
 
     public void setMedida(Medida medida) {
         this.medida = medida;
+    }
+
+    public ServicioCabys getServicio() {
+        return servicio;
+    }
+
+    public void setServicio(ServicioCabys servicio) {
+        this.servicio = servicio;
     }
 }

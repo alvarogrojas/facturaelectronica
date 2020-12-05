@@ -2,6 +2,7 @@ package com.rfs.dtos;
 
 
 import com.rfs.domain.Medida;
+import com.rfs.domain.ServicioCabys;
 import com.rfs.domain.TarifaIva;
 import com.rfs.domain.TipoCambio;
 
@@ -26,6 +27,8 @@ public class NotaCreditoDetalleDTO {
 
     private TarifaIva tarifaIva;
     private Medida medida;
+
+    private ServicioCabys servicio;
 
     public Integer getId() {
         return id;
@@ -121,5 +124,13 @@ public class NotaCreditoDetalleDTO {
 
     public void setMedida(Medida medida) {
         this.medida = medida;
+    }
+
+    public ServicioCabys getServicio() {
+        return servicio;
+    }
+
+    public void setServicio(ServicioCabys servicio) {
+        this.servicio = servicio;
     }
 }

@@ -67,6 +67,9 @@ public class FacturaService {
     private TipoCambioRepository tipoCambioRepository;
 
     @Autowired
+    private ServicioCabysRepository servicioCabysRepository;
+
+    @Autowired
     private TercerosRepository tercerosRepository;
 
     @Autowired
@@ -379,6 +382,8 @@ public class FacturaService {
 
         //Obtiene las medidas
         result.setMedidas(this.medidaRepository.findAll());
+
+        result.setServicios(this.servicioCabysRepository.findByEmpresaIdOrderByDescripcion(u.getEmpresa().getId()));
 
 //        if (!estaEditando) {
 //            result.setTipoActividadEconomica(result.getTipoActividadEconomicas().get(0));
